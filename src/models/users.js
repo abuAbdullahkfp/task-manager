@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema(
       required: true,
       lowercase: true,
       trim: true,
-      unique: true,
+      unique: [true, 'Email has been taken'],
       validate(value) {
         if (!validator.isEmail(value)) {
           throw new Error("Enter a Valid email");
